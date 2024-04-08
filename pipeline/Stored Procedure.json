@@ -1,0 +1,30 @@
+{
+	"name": "Stored Procedure",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[Preethi].[procedure1]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSQLService",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-04-01T15:02:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

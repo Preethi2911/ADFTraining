@@ -1,0 +1,6 @@
+{
+	"name": "integrationADF",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

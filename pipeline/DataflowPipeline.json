@@ -1,0 +1,67 @@
+{
+	"name": "DataflowPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "Script1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "Script1",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "AzureSQLService",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "NonQuery",
+							"text": "IF OBJECT_ID('Preethi.SalesData') IS NOT NULL\nDROP TABLE Preethi.SalesData;\nCREATE TABLE Preethi.SalesData(ProductID INTEGER,Name VARCHAR(MAX),ProductNumber VARCHAR(MAX),Color VARCHAR(MAX),StandardCost DECIMAL(10,4),ListPrice DECIMAL(10,4),  \nSize INTEGER,\nWeight DECIMAL(10,2),\nProductCategoryID INTEGER,ProductModelID INTEGER,SellStartDate INTEGER, \nSellEndDate VARCHAR(MAX),DiscontinuedDate VARCHAR(MAX),ThumbNailPhoto BINARY,   \nThumbnailPhotoFileName VARCHAR(MAX),\nrowguid VARCHAR(MAX),\nModifiedDate TIMESTAMP,\nParentProductCategoryID INTEGER,\nSellStartYear INTEGER,\nid INTEGER,\nRankColumn INTEGER)"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-04-04T07:56:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

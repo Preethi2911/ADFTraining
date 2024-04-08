@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlTablEFullTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSQLService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Preethi",
+			"table": "FullTable"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

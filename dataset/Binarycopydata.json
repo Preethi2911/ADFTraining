@@ -1,0 +1,20 @@
+{
+	"name": "Binarycopydata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_fail",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "PreethiFail.txt",
+				"folderPath": "copydata",
+				"container": "preethifolder"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
